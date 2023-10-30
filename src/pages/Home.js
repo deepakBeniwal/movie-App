@@ -1,16 +1,16 @@
 import React from 'react';
 import MovieSearch from './MovieSearch';
-import Cards from '../components/Cards/Card';
+import Movies from '../components/Movies/Movies';
+import TVShows from '../components/TVShows/TVShows';
 
 const Home = () => {
     return (
         <div>
-          <MovieSearch/>
-
-            <Cards />
+            <MovieSearch />
+            <Movies />
+            <TVShows />
         </div>
     );
 };
 
 export default Home;
-     

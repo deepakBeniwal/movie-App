@@ -18,3 +18,12 @@ export const fetchMovieDetails = async (movieType) => {
         throw error;
     }
 };
+
+export const fetchShowDetails = async (showType) => {
+    try {
+        const response = await api.get(`/tv/${showType}`);
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+};

@@ -6,7 +6,6 @@ import { fetchMovieDetails } from '../services/apiHandler';
 function MovieSearch() {
     const apiKey = process.env.REACT_APP_API_KEY;
     const [selectedMovie, setSelectedMovie] = useState(null);
-
     const [popularMovies, setPopularMovies] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -17,7 +16,6 @@ function MovieSearch() {
                 const data = await fetchMovieDetails(movieType);
                 setPopularMovies(data.results);
                 setLoading(false);
-
                 // Automatically get a random popular movie trailer when the site is loaded
                 handleRandomMovie();
             } catch (error) {
@@ -25,10 +23,9 @@ function MovieSearch() {
                 setLoading(false);
             }
         };
-
         fetchData();
     }, []);
- 
+
     const handleRandomMovie = () => {
         if (popularMovies.length > 0) {
             // Get a random index to select a random popular movie
@@ -65,7 +62,7 @@ function MovieSearch() {
                     >
                         <ReactPlayer
                             playing
-                            url={`https://www.youtube.com/watch?v=${selectedMovie.trailer.key}`}
+                            url={`https://www.youtube-nocookie.com/watch?v=${selectedMovie.trailer.key}?modestbranding=1&fs=0 frameborder='0' allowfullscreen`}
                             controls={false}
                             width="100%"
                             height="100%"
