@@ -1,33 +1,62 @@
-import React from 'react';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.css';
+import { fetchMovieDetails } from '../../services/apiHandler';
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-const Cards = () => {
+const PopularMovies = () => {
+    const [popularMovies, setPopularMovies] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const movieType = 'popular';
+                const data = await fetchMovieDetails(movieType);
+                setPopularMovies(data.results);
+                setLoading(false);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    const swiperParams = {
+        spaceBetween: 20,
+        slidesPerView: 3,
+        loop: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+        }
+    };
+
     return (
-        <Swiper
-            // install Swiper modules
-            modules={[Navigation, Pagination, Scrollbar, A11y]}
-            spaceBetween={50}
-            slidesPerView={3}
-            navigation
-            pagination={{ clickable: true }}
-            scrollbar={{ draggable: true }}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log('slide change')}
-        >
-            <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
-            ...
-        </Swiper>
+        <div>
+            <h2>Popular Movies</h2>
+            {loading ? (
+                <p>Loading...</p>
+            ) : (
+                <Swiper {...swiperParams}>
+                    {popularMovies.map((movie) => (
+                        <SwiperSlide key={movie.id} className="movie-card">
+                            <h3>{movie.title}</h3>
+                            <p>{movie.overview}</p>
+                            {movie.poster_path ? (
+                                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+                            ) : (
+                                <p>No poster available</p>
+                            )}
+                        </SwiperSlide>
+                    ))}
+                    <div className="swiper-button-next"></div>
+                    <div className="swiper-button-prev"></div>
+                </Swiper>
+            )}
+        </div>
     );
 };
 
-export default Cards;
+export default PopularMovies;
