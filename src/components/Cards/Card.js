@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper-bundle.css';
 import { fetchMovieDetails } from '../../services/apiHandler';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/swiper-bundle.css';
+import './Card.css';
 
-const PopularMovies = () => {
+const Card = () => {
     const [popularMovies, setPopularMovies] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -23,40 +27,22 @@ const PopularMovies = () => {
         fetchData();
     }, []);
 
-    const swiperParams = {
-        spaceBetween: 20,
-        slidesPerView: 3,
-        loop: true,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
-        }
-    };
-
     return (
-        <div>
+        <div className="card-container">
             <h2>Popular Movies</h2>
             {loading ? (
                 <p>Loading...</p>
             ) : (
-                <Swiper {...swiperParams}>
+                <Swiper spaceBetween={10} slidesPerView={5} navigation={true} modules={[Navigation]}>
                     {popularMovies.map((movie) => (
                         <SwiperSlide key={movie.id} className="movie-card">
-                            <h3>{movie.title}</h3>
-                            <p>{movie.overview}</p>
-                            {movie.poster_path ? (
-                                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
-                            ) : (
-                                <p>No poster available</p>
-                            )}
+                            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
                         </SwiperSlide>
                     ))}
-                    <div className="swiper-button-next"></div>
-                    <div className="swiper-button-prev"></div>
                 </Swiper>
             )}
         </div>
     );
 };
 
-export default PopularMovies;
+export default Card;
