@@ -27,3 +27,25 @@ export const fetchShowDetails = async (showType) => {
         throw error;
     }
 };
+
+
+export const fetchMovieChanges = async (startDate, endDate) => {
+    try {
+      const apiUrl = `https://api.themoviedb.org/3/movie/changes?api_key=${apiKey}&start_date=${startDate}&end_date=${endDate}`;
+      const response = await axios.get(apiUrl);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  };
+
+
+  export const fetchMovieGenres = async () => {
+    try {
+        const apiUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`;
+        const response = await axios.get(apiUrl);
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+};
