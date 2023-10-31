@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ReactPlayer from 'react-player';
-import { fetchMovieDetails } from '../services/apiHandler';
-import MovieInfo from '../components/Movies/MovieInfo';
-import SideArrow from '../components/UI/SideArrow';
-import './VideoPlayer.css';
+import { fetchMovieDetails } from '../../services/apiHandler';
+import MovieInfo from '../Movies/MovieInfo';
+import SideArrow from '../UI/SideArrow';
+import './VideoPlayer.css'
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
