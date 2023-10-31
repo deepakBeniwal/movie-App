@@ -47,7 +47,7 @@ function MovieSearch() {
             const videos = response.data.videos.results;
             const trailer = videos.find((video) => video.type === 'Trailer');
             if (trailer) {
-                setSelectedMovie( trailer);
+                setSelectedMovie({ ...response.data, trailer });
             }
         } catch (error) {
             console.error('Error fetching movie details:', error);
@@ -61,13 +61,13 @@ function MovieSearch() {
 
     return (
         <div>
-            {selectedMovie && (
+            {selectedMovie?.trailer && (
                 <div className="video-container">
                     <ReactPlayer
                         id="youtube-player"
                         loop
                         playing={true}
-                        url={`https://www.youtube-nocookie.com/embed/${selectedMovie.key}&modestbranding=1&fs=0`}
+                        url={`https://www.youtube-nocookie.com/embed/${selectedMovie?.trailer.key}&modestbranding=1&fs=0`}
                         controls={false}
                         width="100%"
                         height="100%"
