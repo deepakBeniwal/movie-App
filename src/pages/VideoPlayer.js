@@ -5,6 +5,9 @@ import { fetchMovieDetails } from '../services/apiHandler';
 import MovieInfo from '../components/Movies/MovieInfo';
 import SideArrow from '../components/UI/SideArrow';
 import './VideoPlayer.css';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'font-awesome/css/font-awesome.min.css';
 
 function MovieSearch() {
     const apiKey = process.env.REACT_APP_API_KEY;
@@ -12,6 +15,7 @@ function MovieSearch() {
     const [selectedMovie, setSelectedMovie] = useState(null);
     const [popularMovies, setPopularMovies] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [isMuted, setIsMuted] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -57,22 +61,42 @@ function MovieSearch() {
     const handleArrowClick = () => {
         setArrowClicked(!isArrowClicked);
     };
-    console.log(selectedMovie)
+
+    const toggleMute = () => {
+        setIsMuted(!isMuted);
+    };
 
     return (
         <div>
             {selectedMovie?.trailer && (
-                <div className="video-container">
+                <div className="video-container" style={{ position: 'relative' }}>
                     <ReactPlayer
                         id="youtube-player"
                         loop
                         playing={true}
-                        muted={true} 
+                        muted={isMuted}
                         url={`https://www.youtube-nocookie.com/embed/${selectedMovie?.trailer.key}&modestbranding=1&fs=0`}
                         controls={false}
                         width="100%"
                         height="100%"
                     />
+                    <Button
+                        variant="primary"
+                        onClick={toggleMute}
+                        style={{
+                            position: 'absolute',
+                            top: '20px',
+                            right: '20px',
+                            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                            color: '#fff',
+                            padding: '10px 20px',
+                            border: 'none',
+                            cursor: 'pointer'
+                        }}
+                    >
+                        <i className={`fa fa-${isMuted ? 'volume-off' : 'volume-up'}`} />
+                    </Button>
+
                     <div onClick={handleArrowClick}>
                         <SideArrow />
                     </div>
