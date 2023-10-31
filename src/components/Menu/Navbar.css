@@ -29,13 +29,13 @@
 
 .navbar__link {
     margin: 0 15px;
-    font-size: 1.2rem; /* Adjust the font size as needed */
+    font-size: 1.2rem;
     cursor: pointer;
     transition: all 0.2s;
 }
 
 .navbar__link:hover {
-    color: #e50914; /* Change the color on hover */
+    color: #e50914;
 }
 
 .navbar__right {
@@ -45,12 +45,14 @@
 }
 
 .navbar__icon {
-    font-size: 1.5rem; /* Adjust the font size as needed */
+    font-size: 1.5rem;
     margin: 0 10px;
     cursor: pointer;
     transition: all 0.2s;
+    background: transparent;
+    border: none;
 }
 
 .navbar__icon:hover {
-    color: #e50914; /* Change the color on hover */
+    color: #e50914;
 }
