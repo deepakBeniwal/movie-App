@@ -38,7 +38,7 @@ const Movies = () => {
         };
 
         fetchDataForTypes();
-    }, []);
+    }, [movieTypes]);
 
     if (loading) {
         return <p>Loading...</p>;
