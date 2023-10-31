@@ -10,7 +10,7 @@
 
 .navbar__left {
     flex: 0.2;
-    margin-left: 50px;
+    margin-left: 2rem;
 }
 
 .navbar__logo {
@@ -27,6 +27,7 @@
 .navbar__links {
     list-style: none;
     display: flex;
+    margin-left: 2rem;
 }
 
 .navbar__link {
