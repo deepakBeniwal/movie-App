@@ -3,6 +3,7 @@ import './Navbar.css';
 import logo from '../../assets/logo.svg';
 import searchIcon from '../../assets/search.svg';
 import notifIcon from '../../assets/notification.svg';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
     return (
@@ -13,10 +14,18 @@ function Navbar() {
 
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar__links navbar-nav">
-                    <li className="navbar__link nav-item">Home</li>
-                    <li className="navbar__link nav-item">Movies</li>
-                    <li className="navbar__link nav-item">TV Shows</li>
-                    <li className="navbar__link nav-item">Trending</li>
+                    <Link to={'/'}>
+                        <li className="navbar__link nav-item">Home</li>
+                    </Link>
+                    <Link to={'/movies'}>
+                        <li className="navbar__link nav-item">Movies</li>
+                    </Link>
+                    <Link to={'/movies'}>
+                        <li className="navbar__link nav-item">TV Shows</li>
+                    </Link>
+                    <Link to={'/movies'}>
+                        <li className="navbar__link nav-item">Trending</li>
+                    </Link>
                 </ul>
             </div>
             <div className="navbar__right">
