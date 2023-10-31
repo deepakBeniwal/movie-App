@@ -29,13 +29,12 @@ const AllMovies = () => {
 
                     dataByGenre[genre.id] = {
                         name: genre.name,
-                        movies: movies.map((movie) => ({
-                            id: movie.id,
-                            title: movie.title,
-                            posterPath: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
-                        })),
+                        movies: movies.map((movie) => (movie))
                     };
                 }
+
+                console.log(dataByGenre)
+                console.log(genres)
 
                 setMoviesByGenre(dataByGenre);
                 setLoading(false);

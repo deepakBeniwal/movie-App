@@ -6,6 +6,8 @@ import 'swiper/css/navigation';
 import 'swiper/swiper-bundle.css';
 import './Slider.css';
 const SliderComponent = ({ movies }) => {
+
+    console.log(movies, ',ovies')
     return (
         <Swiper spaceBetween={10} slidesPerView={6} slidesPerGroup={3} navigation={true} modules={[Navigation]}>
             {movies?.map((movie) => (

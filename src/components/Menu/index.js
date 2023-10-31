@@ -20,7 +20,7 @@ function Navbar() {
                     <Link to={'/movies'}>
                         <li className="navbar__link nav-item">Movies</li>
                     </Link>
-                    <Link to={'/movies'}>
+                    <Link to={'/tv-shows'}>
                         <li className="navbar__link nav-item">TV Shows</li>
                     </Link>
                     <Link to={'/movies'}>
