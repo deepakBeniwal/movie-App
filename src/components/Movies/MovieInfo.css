@@ -1,0 +1,40 @@
+.movie-info {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    width: 400px;
+    padding: 20px;
+    background: rgba(44, 44, 44, 0.744);
+    color: white;
+    text-align: left;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.movie-info h2 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.movie-info p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+button {
+    margin-right: 15px;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.movie-info .watch-button {
+    background: #e50914;
+}
+
+.movie-info .info-button {
+    background: #969696;
+}

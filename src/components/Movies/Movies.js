@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { fetchMovieDetails } from '../../services/apiHandler';
 import './Movies.css';
-import SwiperComponent from '../Swiper/Swiper';
+import SliderComponent from '../Slider/Slider';
 
 const Movies = () => {
     const [moviesByType, setMoviesByType] = useState({});
@@ -49,7 +49,7 @@ const Movies = () => {
             {movieTypes.map((type) => (
                 <div key={type}>
                     <h2>{capitalizeFirstLetter(type)} Movies</h2>
-                    <SwiperComponent movies={moviesByType[type]} />
+                    <SliderComponent movies={moviesByType[type]} />
                 </div>
             ))}
         </div>

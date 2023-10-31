@@ -4,8 +4,8 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/swiper-bundle.css';
-import './Swiper.css';
-const SwiperComponent = ({ movies }) => {
+import './Slider.css';
+const SliderComponent = ({ movies }) => {
     return (
         <Swiper spaceBetween={10} slidesPerView={5} navigation={true} modules={[Navigation]}>
             {movies.map((movie) => (
@@ -17,4 +17,4 @@ const SwiperComponent = ({ movies }) => {
     );
 };
 
-export default SwiperComponent;
+export default SliderComponent;

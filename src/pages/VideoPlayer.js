@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ReactPlayer from 'react-player';
 import { fetchMovieDetails } from '../services/apiHandler';
+import MovieInfo from '../components/Movies/MovieInfo';
+import SideArrow from '../components/UI/SideArrow';
 
 function MovieSearch() {
     const apiKey = process.env.REACT_APP_API_KEY;
+    const [isArrowClicked, setArrowClicked] = useState(false);
     const [selectedMovie, setSelectedMovie] = useState(null);
     const [popularMovies, setPopularMovies] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -28,11 +31,8 @@ function MovieSearch() {
 
     const handleRandomMovie = () => {
         if (popularMovies.length > 0) {
-            // Get a random index to select a random popular movie
             const randomIndex = Math.floor(Math.random() * popularMovies.length);
             const randomMovie = popularMovies[randomIndex];
-
-            // Fetch the trailer for the random movie
             handleViewTrailer(randomMovie.id);
         }
     };
@@ -50,6 +50,10 @@ function MovieSearch() {
         }
     };
 
+    const handleArrowClick = () => {
+        setArrowClicked(!isArrowClicked);
+    };
+
     return (
         <div>
             {selectedMovie && (
@@ -57,22 +61,30 @@ function MovieSearch() {
                     <div
                         style={{
                             position: 'relative',
-                            paddingTop: '56.25%' // 16:9 aspect ratio
+                            paddingTop: '56.25%'
                         }}
                     >
                         <ReactPlayer
+                            id="youtube-player"
+                            loop
                             playing
-                            url={`https://www.youtube-nocookie.com/watch?v=${selectedMovie.trailer.key}?modestbranding=1&fs=0 frameborder='0' allowfullscreen`}
+                            url={`https://www.youtube-nocookie.com/embed/${selectedMovie.trailer.key}?autoplay=1&modestbranding=1&fs=0`}
                             controls={false}
                             width="100%"
                             height="100%"
-                            style={{
-                                position: 'absolute',
-                                top: 0,
-                                left: 0
-                            }}
                         />
                     </div>
+                    <div onClick={handleArrowClick}>
+                        <SideArrow />
+                    </div>
+                    {isArrowClicked && (
+                        <MovieInfo
+                            title={selectedMovie.title}
+                            description={selectedMovie.overview}
+                            rating={selectedMovie.vote_average}
+                            year={selectedMovie.release_date}
+                        />
+                    )}
                 </div>
             )}
         </div>
