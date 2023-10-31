@@ -1,4 +1,6 @@
 .card-container {
     max-width: 100%;
     overflow-x: auto;
+    font-family: 'Bebas Neue';
+    letter-spacing: 0.2ch;
 }

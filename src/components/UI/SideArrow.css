@@ -1,6 +1,4 @@
 #arrowAnim {
-    width: 3vw;
-    height: 3vw;
     display: flex;
     position: absolute;
     top: 50%;
@@ -13,8 +11,8 @@
 }
 
 .arrow {
-    width: 2.5vw;
-    height: 2.5vw;
+    width: 2vw;
+    height: 2vw;
     border: 1.25vw solid;
     border-color: rgb(255, 255, 255) transparent transparent rgb(255, 255, 255);
     transform: rotate(-45deg);
