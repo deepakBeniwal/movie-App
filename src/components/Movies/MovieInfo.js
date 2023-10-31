@@ -1,7 +1,7 @@
 import React from 'react';
+import { FaPlay, FaInfoCircle } from 'react-icons/fa';
 import './MovieInfo.css';
-import InfoButton from '../UI/InfoButton';
-import PlayButton from '../UI/PlayButton';
+
 function truncateDescription(description, maxChars) {
     if (description.length > maxChars) {
         return description.substring(0, maxChars) + '...';
@@ -20,13 +20,15 @@ function MovieInfo(props) {
             <br />
 
             <button className="watch-button">
-                {PlayButton}
-                Watch Now
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <FaPlay style={{ marginRight: '4px' }} /> Watch Now
+                </div>
             </button>
 
             <button className="info-button">
-                {InfoButton}
-                More Info
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <FaInfoCircle style={{ marginRight: '4px' }} /> More Info
+                </div>
             </button>
         </div>
     );
