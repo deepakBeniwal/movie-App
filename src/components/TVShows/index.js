@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { fetchShowDetails } from '../../services/apiHandler';
 import '../Movies/Movies.css';
-import SwiperComponent from '../Slider/Slider';
+import SwiperComponent from '../Slider';
 
 const TVShows = () => {
     const capitalizeFirstLetter = (string) => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { fetchMovieDetails } from '../../services/apiHandler';
 import './Movies.css';
-import SliderComponent from '../Slider/Slider';
+import SliderComponent from '../Slider';
 
 // Define an array of movie types outside the component
 const movieTypes = ['popular', 'top_rated'];

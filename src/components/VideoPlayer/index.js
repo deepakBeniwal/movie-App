@@ -3,11 +3,11 @@ import axios from 'axios';
 import ReactPlayer from 'react-player';
 import { fetchMovieDetails } from '../../services/apiHandler';
 import MovieInfo from '../Movies/MovieInfo';
-import SideArrow from '../UI/SideArrow';
+import SideArrow from '../UI';
 import './VideoPlayer.css'
 import Button from 'react-bootstrap/Button';
 
-function MovieSearch() {
+function VideoPlayer() {
     const apiKey = process.env.REACT_APP_API_KEY;
     const [isArrowClicked, setArrowClicked] = useState(false);
     const [selectedMovie, setSelectedMovie] = useState(null);
@@ -112,4 +112,4 @@ function MovieSearch() {
     );
 }
 
-export default MovieSearch;
+export default VideoPlayer;
