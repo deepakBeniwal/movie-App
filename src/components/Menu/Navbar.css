@@ -1,6 +1,6 @@
 /* Navbar.css */
 .navbar {
-    background: transparent; /* Set the background to transparent */
+    background: transparent;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -9,10 +9,11 @@
 
 .navbar__left {
     flex: 0.2;
+    margin-left: 50px;
 }
 
 .navbar__logo {
-    width: 100px; /* Adjust the width as needed */
+    width: 100px;
     object-fit: contain;
 }
 

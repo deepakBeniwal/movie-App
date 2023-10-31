@@ -6,8 +6,6 @@ import MovieInfo from '../components/Movies/MovieInfo';
 import SideArrow from '../components/UI/SideArrow';
 import './VideoPlayer.css';
 import Button from 'react-bootstrap/Button';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'font-awesome/css/font-awesome.min.css';
 
 function MovieSearch() {
     const apiKey = process.env.REACT_APP_API_KEY;
