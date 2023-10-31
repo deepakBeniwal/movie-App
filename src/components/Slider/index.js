@@ -7,7 +7,7 @@ import 'swiper/swiper-bundle.css';
 import './Slider.css';
 const SliderComponent = ({ movies }) => {
     return (
-        <Swiper spaceBetween={10} slidesPerView={6} slidesPerGroup={6} navigation={true} modules={[Navigation]} loop={true}>
+        <Swiper spaceBetween={10} slidesPerView={6} slidesPerGroup={3} navigation={true} modules={[Navigation]}>
             {movies.map((movie) => (
                 <SwiperSlide key={movie.id} className="movie-card">
                     <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />

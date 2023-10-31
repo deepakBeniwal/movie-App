@@ -1,0 +1,7 @@
+/* fonts.css */
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('/fonts/BebasNeue-Regular.ttf') format('truetype'); /* Update the file path as needed */
+    font-weight: normal;
+    font-style: normal;
+}

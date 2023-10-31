@@ -1,11 +1,14 @@
 /* Navbar.css */
+
 .navbar {
     background: transparent;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-    background-color: transparent;
+    font-family: 'Bebas Neue';
+    color: #fff;
+    word-spacing: 0.5ch;
 }
 
 .navbar__left {
@@ -27,7 +30,6 @@
 .navbar__links {
     list-style: none;
     display: flex;
-    margin-left: 2rem;
 }
 
 .navbar__link {
