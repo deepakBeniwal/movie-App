@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg">
             <div className="navbar__left">
                 <img className="navbar__logo" src={logo} alt="Netflix" />
             </div>

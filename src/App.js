@@ -7,12 +7,11 @@ function App() {
     return (
         <Router>
             <Routes>
-                <Route path="/" exact element={<Home/>} />
-                <Route path="/movies"  element={<AllMovies/>} />
-                <Route path="/" exact element={<Home/>} />
-                <Route path="/" exact element={<Home/>} />
+                <Route path="/" exact element={<Home />} />
+                <Route path="/movies" element={<AllMovies />} />
+                <Route path="/" exact element={<Home />} />
+                <Route path="/" exact element={<Home />} />
             </Routes>
-            {/* Add more routes as needed */}
         </Router>
     );
 }
