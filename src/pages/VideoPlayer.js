@@ -67,6 +67,7 @@ function MovieSearch() {
                         id="youtube-player"
                         loop
                         playing={true}
+                        muted={true} 
                         url={`https://www.youtube-nocookie.com/embed/${selectedMovie?.trailer.key}&modestbranding=1&fs=0`}
                         controls={false}
                         width="100%"
