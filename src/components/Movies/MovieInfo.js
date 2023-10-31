@@ -9,12 +9,27 @@ function truncateDescription(description, maxChars) {
     return description;
 }
 
+function splitTitle(title) {
+    const words = title.split(' ');
+    if (words.length > 3) {
+        // If the title has more than three words, split it into two lines
+        return (
+            <div>
+                <div>{words.slice(0, 2).join(' ')}</div>
+                <div>{words.slice(2).join(' ')}</div>
+            </div>
+        );
+    }
+    return title;
+}
+
 function MovieInfo(props) {
-    const truncatedDescription = truncateDescription(props.description, 150);
+    const truncatedDescription = truncateDescription(props.description, 200);
+    const title = splitTitle(props.title);
 
     return (
         <div className="movie-info">
-            <h2>{props.title}</h2>
+            <h2>{title}</h2>
             <br />
             <p>{truncatedDescription}</p>
             <br />

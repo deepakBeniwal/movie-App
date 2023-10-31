@@ -23,7 +23,7 @@ function Navbar() {
                     <Link to={'/tv-shows'}>
                         <li className="navbar__link nav-item">TV Shows</li>
                     </Link>
-                    <Link to={'/movies'}>
+                    <Link to={'/trending'}>
                         <li className="navbar__link nav-item">Trending</li>
                     </Link>
                 </ul>

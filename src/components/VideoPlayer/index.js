@@ -3,13 +3,11 @@ import axios from 'axios';
 import ReactPlayer from 'react-player';
 import { fetchMovieDetails } from '../../services/apiHandler';
 import MovieInfo from '../Movies/MovieInfo';
-import SideArrow from '../UI';
-import './VideoPlayer.css'
+import './VideoPlayer.css';
 import Button from 'react-bootstrap/Button';
 
 function VideoPlayer() {
     const apiKey = process.env.REACT_APP_API_KEY;
-    const [isArrowClicked, setArrowClicked] = useState(false);
     const [selectedMovie, setSelectedMovie] = useState(null);
     const [popularMovies, setPopularMovies] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -22,8 +20,6 @@ function VideoPlayer() {
                 const data = await fetchMovieDetails(movieType);
                 setPopularMovies(data.results);
                 setLoading(false);
-                // Automatically get a random popular movie trailer when the site is loaded
-                // handleRandomMovie();
             } catch (error) {
                 console.error('Error fetching data:', error);
                 setLoading(false);
@@ -33,7 +29,6 @@ function VideoPlayer() {
     }, []);
 
     useEffect(() => {
-        // Consolidate handleRandomMovie and handleViewTrailer into a single useEffect
         if (popularMovies.length > 0) {
             const randomIndex = Math.floor(Math.random() * popularMovies.length);
             const randomMovie = popularMovies[randomIndex];
@@ -54,10 +49,6 @@ function VideoPlayer() {
         } catch (error) {
             console.error('Error fetching movie details:', error);
         }
-    };
-
-    const handleArrowClick = () => {
-        setArrowClicked(!isArrowClicked);
     };
 
     const toggleMute = () => {
@@ -94,18 +85,12 @@ function VideoPlayer() {
                     >
                         <i className={`fa fa-${isMuted ? 'volume-off' : 'volume-up'}`} />
                     </Button>
-
-                    <div onClick={handleArrowClick}>
-                        <SideArrow />
-                    </div>
-                    {isArrowClicked && (
-                        <MovieInfo
-                            title={selectedMovie.title}
-                            description={selectedMovie.overview}
-                            rating={selectedMovie.vote_average}
-                            year={selectedMovie.release_date}
-                        />
-                    )}
+                    <MovieInfo
+                        title={selectedMovie.title}
+                        description={selectedMovie.overview}
+                        rating={selectedMovie.vote_average}
+                        year={selectedMovie.release_date}
+                    />
                 </div>
             )}
         </div>
