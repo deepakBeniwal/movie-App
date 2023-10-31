@@ -1,0 +1,56 @@
+/* Navbar.css */
+.navbar {
+    background: transparent; /* Set the background to transparent */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.navbar__left {
+    flex: 0.2;
+}
+
+.navbar__logo {
+    width: 100px; /* Adjust the width as needed */
+    object-fit: contain;
+}
+
+.navbar__center {
+    flex: 0.6;
+    display: flex;
+    justify-content: space-around;
+}
+
+.navbar__links {
+    list-style: none;
+    display: flex;
+}
+
+.navbar__link {
+    margin: 0 15px;
+    font-size: 1.2rem; /* Adjust the font size as needed */
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.navbar__link:hover {
+    color: #e50914; /* Change the color on hover */
+}
+
+.navbar__right {
+    flex: 0.2;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar__icon {
+    font-size: 1.5rem; /* Adjust the font size as needed */
+    margin: 0 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.navbar__icon:hover {
+    color: #e50914; /* Change the color on hover */
+}
