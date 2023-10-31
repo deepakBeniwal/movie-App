@@ -4,7 +4,7 @@ import ReactPlayer from 'react-player';
 import { fetchMovieDetails } from '../services/apiHandler';
 import MovieInfo from '../components/Movies/MovieInfo';
 import SideArrow from '../components/UI/SideArrow';
-
+import './VideoPlayer.css';
 function MovieSearch() {
     const apiKey = process.env.REACT_APP_API_KEY;
     const [isArrowClicked, setArrowClicked] = useState(false);
@@ -58,22 +58,15 @@ function MovieSearch() {
         <div>
             {selectedMovie && (
                 <div className="video-container">
-                    <div
-                        style={{
-                            position: 'relative',
-                            paddingTop: '56.25%'
-                        }}
-                    >
-                        <ReactPlayer
-                            id="youtube-player"
-                            loop
-                            playing
-                            url={`https://www.youtube-nocookie.com/embed/${selectedMovie.trailer.key}?autoplay=1&modestbranding=1&fs=0`}
-                            controls={false}
-                            width="100%"
-                            height="100%"
-                        />
-                    </div>
+                    <ReactPlayer
+                        id="youtube-player"
+                        loop
+                        playing
+                        url={`https://www.youtube-nocookie.com/embed/${selectedMovie.trailer.key}?autoplay=1&modestbranding=1&fs=0`}
+                        controls={false}
+                        width="100%"
+                        height="100%"
+                    />
                     <div onClick={handleArrowClick}>
                         <SideArrow />
                     </div>
