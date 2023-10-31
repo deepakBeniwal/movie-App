@@ -3,6 +3,9 @@ import { fetchMovieDetails } from '../../services/apiHandler';
 import './Movies.css';
 import SliderComponent from '../Slider/Slider';
 
+// Define an array of movie types outside the component
+const movieTypes = ['popular', 'top_rated'];
+
 const Movies = () => {
     const [moviesByType, setMoviesByType] = useState({});
     const [loading, setLoading] = useState(true);
@@ -17,8 +20,6 @@ const Movies = () => {
             )
             .join(' ');
     };
-    // Define an array of movie types
-    const movieTypes = ['popular', 'top_rated'];
 
     useEffect(() => {
         const fetchDataForTypes = async () => {
@@ -38,7 +39,7 @@ const Movies = () => {
         };
 
         fetchDataForTypes();
-    }, [movieTypes]);
+    }, []); // Empty dependency array to run once when the component mounts
 
     if (loading) {
         return <p>Loading...</p>;

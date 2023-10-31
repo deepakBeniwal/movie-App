@@ -15,16 +15,16 @@ const TVShows = () => {
             )
             .join(' ');
     };
+
     const [showByType, setShowByType] = useState({});
     const [loading, setLoading] = useState(true);
 
     // Define an array of movie types
     const showTypes = ['popular', 'top_rated'];
-
     useEffect(() => {
         const fetchDataForTypes = async () => {
             const dataByType = {};
-
+    
             for (const type of showTypes) {
                 try {
                     const data = await fetchShowDetails(type);
@@ -33,14 +33,15 @@ const TVShows = () => {
                     console.error(`Error fetching data for ${type}:`, error);
                 }
             }
-
+    
             setShowByType(dataByType);
             setLoading(false);
         };
-
-        fetchDataForTypes();
-    }, []);
-
+    
+        if (showTypes.some((type) => !showByType[type])) {
+            fetchDataForTypes();
+        }
+    }, [showByType]);
     if (loading) {
         return <p>Loading...</p>;
     }
