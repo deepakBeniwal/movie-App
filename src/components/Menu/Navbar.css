@@ -1,18 +1,20 @@
 /* Navbar.css */
 .navbar {
-    background: transparent; /* Set the background to transparent */
+    background: transparent;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
+    background-color: transparent;
 }
 
 .navbar__left {
     flex: 0.2;
+    margin-left: 2rem;
 }
 
 .navbar__logo {
-    width: 100px; /* Adjust the width as needed */
+    width: 100px;
     object-fit: contain;
 }
 
@@ -25,6 +27,7 @@
 .navbar__links {
     list-style: none;
     display: flex;
+    margin-left: 2rem;
 }
 
 .navbar__link {
