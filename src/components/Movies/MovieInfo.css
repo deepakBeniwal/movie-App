@@ -17,6 +17,19 @@
     border-right: 2px solid transparent;
     animation: typing 5s steps(30, end) forwards;
 }
+/* Add styles for the Explore tag */
+.explore-tag {
+    display: inline-block;
+    font-size: small;
+    margin-left: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+h2:hover .explore-tag {
+    opacity: 1;
+    cursor: pointer;
+}
 
 .movie-info p {
     margin: 8px 0;
