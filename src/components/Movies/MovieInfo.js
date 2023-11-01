@@ -24,7 +24,7 @@ function splitTitle(title) {
 }
 
 function MovieInfo(props) {
-    const truncatedDescription = truncateDescription(props.description, 200);
+    const truncatedDescription = truncateDescription(props.description, 180);
     const title = splitTitle(props.title);
 
     return (

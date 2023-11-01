@@ -4,7 +4,6 @@ import axios from 'axios';
 import SliderComponent from '../../components/Slider';
 import Navbar from '../../components/Menu';
 
-
 const AllMovies = () => {
     const [moviesByGenre, setMoviesByGenre] = useState({});
     const [loading, setLoading] = useState(true);
@@ -22,19 +21,16 @@ const AllMovies = () => {
                         params: {
                             api_key: process.env.REACT_APP_API_KEY, // Replace with your TMDb API key
                             with_genres: genre.id,
-                            sort_by: 'popularity.desc',
-                        },
+                            sort_by: 'popularity.desc'
+                        }
                     });
                     const movies = moviesResponse.data.results;
 
                     dataByGenre[genre.id] = {
                         name: genre.name,
-                        movies: movies.map((movie) => (movie))
+                        movies: movies.map((movie) => movie)
                     };
                 }
-
-                console.log(dataByGenre)
-                console.log(genres)
 
                 setMoviesByGenre(dataByGenre);
                 setLoading(false);

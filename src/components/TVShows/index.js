@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { fetchShowDetails } from '../../services/apiHandler';
 import '../Movies/Movies.css';
-import SwiperComponent from '../Slider';
+import { useNavigate } from 'react-router';
+import SliderComponent from '../Slider/index';
 
 const TVShows = () => {
+    const navigate = useNavigate();
     const capitalizeFirstLetter = (string) => {
         return string
             .split('_')
@@ -24,7 +26,7 @@ const TVShows = () => {
     useEffect(() => {
         const fetchDataForTypes = async () => {
             const dataByType = {};
-    
+
             for (const type of showTypes) {
                 try {
                     const data = await fetchShowDetails(type);
@@ -33,11 +35,11 @@ const TVShows = () => {
                     console.error(`Error fetching data for ${type}:`, error);
                 }
             }
-    
+
             setShowByType(dataByType);
             setLoading(false);
         };
-    
+
         if (showTypes.some((type) => !showByType[type])) {
             fetchDataForTypes();
         }
@@ -45,13 +47,22 @@ const TVShows = () => {
     if (loading) {
         return <p>Loading...</p>;
     }
+    const handleTVShowClick = () => {
+        navigate('/tvshows');
+    };
 
     return (
         <div className="card-container">
             {showTypes.map((type) => (
                 <div key={type}>
-                    <h2>{capitalizeFirstLetter(type)} Shows</h2>
-                    <SwiperComponent movies={showByType[type]} />
+                    <h2>
+                        {capitalizeFirstLetter(type)} Shows{' '}
+                        <p className="explore-tag" onClick={handleTVShowClick}>
+                            Explore &rarr;
+                        </p>
+                    </h2>
+
+                    <SliderComponent movies={showByType[type]} />
                 </div>
             ))}
         </div>

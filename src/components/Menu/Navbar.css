@@ -15,19 +15,12 @@
 }
 
 .navbar__left {
-    flex: 0.2;
     margin-left: 2rem;
 }
 
 .navbar__logo {
     width: 100px;
     object-fit: contain;
-}
-
-.navbar__center {
-    flex: 0.6;
-    display: flex;
-    justify-content: space-around;
 }
 
 .navbar__links {

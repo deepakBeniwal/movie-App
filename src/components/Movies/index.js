@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { fetchMovieDetails } from '../../services/apiHandler';
 import './Movies.css';
 import SliderComponent from '../Slider';
+import { useNavigate } from 'react-router';
 
 // Define an array of movie types outside the component
 const movieTypes = ['popular', 'top_rated'];
 
 const Movies = () => {
+    const navigate = useNavigate();
     const [moviesByType, setMoviesByType] = useState({});
     const [loading, setLoading] = useState(true);
     const capitalizeFirstLetter = (string) => {
@@ -21,6 +23,9 @@ const Movies = () => {
             .join(' ');
     };
 
+    const handleMovieClick = () => {
+        navigate('/movies');
+    };
     useEffect(() => {
         const fetchDataForTypes = async () => {
             const dataByType = {};
@@ -49,7 +54,12 @@ const Movies = () => {
         <div className="card-container">
             {movieTypes.map((type) => (
                 <div key={type}>
-                    <h2>{capitalizeFirstLetter(type)} Movies</h2>
+                    <h2>
+                        {capitalizeFirstLetter(type)} Movies
+                        <p className="explore-tag" onClick={handleMovieClick}>
+                            Explore &rarr;
+                        </p>
+                    </h2>
                     <SliderComponent movies={moviesByType[type]} />
                 </div>
             ))}
