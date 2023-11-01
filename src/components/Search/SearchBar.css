@@ -9,6 +9,7 @@
     overflow: hidden;
     border: none;
     transition: all 0.3s ease-in-out;
+    text-transform: lowercase;
 }
 
 .search-bar.open {
@@ -28,6 +29,7 @@
     padding: 10px;
     width: 80%;
     margin-right: 10px;
+    letter-spacing: 0.2ch;
 }
 /* Close Button */
 .close-button {

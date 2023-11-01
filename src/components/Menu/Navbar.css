@@ -1,7 +1,7 @@
 /* Navbar.css */
 
 .navbar {
-    background: transparent;
+    background: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -9,6 +9,9 @@
     font-family: 'Bebas Neue';
     letter-spacing: 0.1ch;
     color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .navbar__left {
@@ -61,8 +64,4 @@ a {
     transition: all 0.2s;
     background: transparent;
     border: none;
-}
-
-.navbar__icon:hover {
-    color: #e50914;
 }
