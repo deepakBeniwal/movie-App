@@ -48,7 +48,7 @@ const TVShows = () => {
         return <p>Loading...</p>;
     }
     const handleTVShowClick = () => {
-        navigate('/tvshows');
+        navigate('/tv-shows');
     };
 
     return (
