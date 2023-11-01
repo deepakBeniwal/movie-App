@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Navbar.css';
 import logo from '../../assets/logo.svg';
 import searchIcon from '../../assets/search.svg';
 import notifIcon from '../../assets/notification.svg';
 import { Link } from 'react-router-dom';
+import SearchBar from '../Search/SearchBar';
 
 function Navbar() {
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+    const toggleSearch = () => {
+        setIsSearchOpen(!isSearchOpen);
+    };
+
     return (
         <nav className="navbar navbar-expand-lg">
             <div className="navbar__left">
@@ -28,14 +35,17 @@ function Navbar() {
                     </Link>
                 </ul>
             </div>
+
             <div className="navbar__right">
-                <button className="navbar__icon">
+                <button className="navbar__icon" onClick={toggleSearch}>
                     <img src={searchIcon} alt="search" />
                 </button>
                 <button className="navbar__icon">
                     <img src={notifIcon} alt="notify" />
                 </button>
             </div>
+
+            <SearchBar isOpen={isSearchOpen} onClose={toggleSearch} />
         </nav>
     );
 }

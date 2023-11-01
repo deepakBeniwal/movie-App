@@ -3,15 +3,15 @@
     top: 50%;
     left: 30px;
     transform: translate(0, -50%);
-    width: 600px;
+    width: 620px;
 }
 
 .movie-info h2 {
     font-family: 'Bebas Neue';
-    word-break: break-all;
-    font-size: 5rem;
+    /* color: rgb(233, 198, 0); */
+    font-size: 6rem;
     margin: 0;
-    letter-spacing: 0.2ch;
+    letter-spacing: 0.1ch;
     white-space: nowrap;
     overflow: hidden;
     border-right: 2px solid transparent;
@@ -20,8 +20,8 @@
 
 .movie-info p {
     margin: 8px 0;
-    word-break: break-all;
     font-size: 1rem;
+    width: 80%;
     opacity: 0;
     animation: fadeIn 1s ease-in-out forwards;
 }

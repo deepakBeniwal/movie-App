@@ -1,0 +1,39 @@
+/* SearchBar */
+.search-bar {
+    position: absolute;
+    top: 0;
+    right: 6rem;
+    width: 0;
+    height: 120%;
+    transform: translateY(-20%);
+    overflow: hidden;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-bar.open {
+    width: 25%;
+}
+
+/* SearchBar Content */
+.search-bar__content {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Search Input */
+.search-bar__content input {
+    border: none;
+    padding: 10px;
+    width: 80%;
+    margin-right: 10px;
+}
+/* Close Button */
+.close-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
