@@ -86,6 +86,7 @@ function VideoPlayer() {
                         <i className={`fa fa-${isMuted ? 'volume-off' : 'volume-up'}`} />
                     </Button>
                     <MovieInfo
+                        movie={selectedMovie}
                         title={selectedMovie.title}
                         description={selectedMovie.overview}
                         rating={selectedMovie.vote_average}

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaPlay, FaInfoCircle } from 'react-icons/fa';
 import './MovieInfo.css';
+import InfoModal from '../MoreInfo/InfoModal';
 
 function truncateDescription(description, maxChars) {
     if (description.length > maxChars) {
@@ -24,8 +25,19 @@ function splitTitle(title) {
 }
 
 function MovieInfo(props) {
+    console.log(props.movie);
+    const [isModalOpen, setModalOpen] = useState(false);
+
     const truncatedDescription = truncateDescription(props.description, 180);
     const title = splitTitle(props.title);
+
+    const openModal = () => {
+        setModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalOpen(false);
+    };
 
     return (
         <div className="movie-info">
@@ -40,11 +52,13 @@ function MovieInfo(props) {
                 </div>
             </button>
 
-            <button className="info-button">
+            <button className="info-button" onClick={openModal}>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <FaInfoCircle style={{ marginRight: '4px' }} /> More Info
                 </div>
             </button>
+
+            <InfoModal isOpen={isModalOpen} onRequestClose={closeModal} movie={props.movie} />
         </div>
     );
 }
